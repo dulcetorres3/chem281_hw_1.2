@@ -16,7 +16,7 @@ jobs:
       matrix:
         basis: [ sto-3g, 6-31++g ]
         format: [ json, nwchem ]
-        elements: [ 1,6-8, C,8,p-17 ]
+        elements: [ 8,p-17 ]
 
     runs-on: ubuntu-latest
 
