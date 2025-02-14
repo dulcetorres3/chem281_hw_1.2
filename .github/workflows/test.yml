@@ -10,7 +10,7 @@ on:
 
     
 jobs:
-  myjob:
+  myjob1:
 
     strategy:
       fail-fast: false
@@ -30,6 +30,18 @@ jobs:
 
       - name: Print results
         run: cat basis_set.${{ matrix.format }}
+        
+    myjob2:
+      if: (github.even_name == 'workflow_dispatch'
+      runs-on: ubuntu-latest
+      steps:
+        - name: Run image
+          run: docker run --rm -v $(pwd):data dulcetorres/bse sto-3g json "1,2,10"
+
+        - name: Print info
+          run: cat basis_set.json
+    
+
         
  
 
