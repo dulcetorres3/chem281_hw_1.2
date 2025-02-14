@@ -7,18 +7,19 @@ on:
     branches: "*"
   pull_request:
     branches: "*"
+  workflow_dispatch:
 
     
 jobs:
   myjob1:
-
+    if: (github.event_name == 'push' || github.event_name == "pull_request")
     strategy:
       fail-fast: false
       matrix:
         basis: [ sto-3g, 6-31++g ]
         format: [ json, nwchem ]
         elements: [ 8,p-17 ]
-
+        
     runs-on: ubuntu-latest
 
     steps:
@@ -32,7 +33,7 @@ jobs:
         run: cat basis_set.${{ matrix.format }}
         
   myjob2:
-    if: (github.even_name == 'workflow_dispatch')
+    if: (github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
     
     steps:
