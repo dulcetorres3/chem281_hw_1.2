@@ -33,7 +33,7 @@ jobs:
         run: docker run --rm -v $(pwd):/data dulcetorres/bse ${{ matrix.basis }} ${{ matrix.format }} ${{ matrix.elements }}
 
       - name: Print results
-        run: cat basis_set.${{ matrix.format }}
+        run: cat basis_set.txt
         
   myjob2:
     if: (github.event_name == 'workflow_dispatch')
