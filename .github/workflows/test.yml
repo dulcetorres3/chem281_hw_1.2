@@ -13,6 +13,7 @@ jobs:
   myjob:
 
     strategy:
+      fail-fast: false
       matrix:
         basis: [ sto-3g, 6-31++g ]
         format: [ json, nwchem ]
