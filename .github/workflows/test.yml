@@ -8,6 +8,13 @@ on:
   pull_request:
     branches: "*"
   workflow_dispatch:
+    inputs:
+      basis:
+        required: true
+      format:
+        required: true
+      elements:
+        required: true
 
     
 jobs:
@@ -47,7 +54,7 @@ jobs:
         run: docker build -t dulcetorres/bse .
         
       - name: Run image
-        run: docker run --rm -v $(pwd):/data dulcetorres/bse sto-3g json "1,2,10"
+        run: docker run --rm -v $(pwd):/data dulcetorres/bse inputs.basis inputs.format inputs.elements
 
       - name: Print info
         run: cat basis_set.json
