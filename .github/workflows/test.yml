@@ -57,7 +57,7 @@ jobs:
         run: docker run --rm -v $(pwd):/data dulcetorres/bse inputs.basis inputs.format inputs.elements
 
       - name: Print info
-        run: cat basis_set.json
+        run: cat basis_set.txt
     
 
         
